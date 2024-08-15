@@ -26,6 +26,11 @@ label_pass.grid(column=0,row=4, sticky="E")
 warning_label = tk.Label(text = " ")
 warning_label.grid(column= 1, row= 8)
 
+
+def disappear_warning_message():
+    warning_label.config(text="")
+
+
 # image_label 
 image = Image.open("Password_Manager\password_manager.png")
 image = image.resize((180, 180))
@@ -96,7 +101,9 @@ def memorize_the_info():
 
             else:
                 file.write(key + ": " + value + "\n")  
-                 
+        
+        warning_label.config(text = "Successful save")
+        window.after(1200, func= disappear_warning_message)
 
 
 def open_file():
