@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
 import random
@@ -60,6 +61,11 @@ def memorize_the_info():
     website = entry_website.get()
     username = entry_username.get()
     password = entry_password.get()
+
+    # Check for empty input boxes
+    if len(website) == 0 or len(username) == 0 or len(password) == 0:
+        messagebox.showinfo(title = "Error Message", message = "Don't leave empty boxes")
+        return
 
     password_info["website"] = website
     password_info["username/email"] = username
